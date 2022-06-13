@@ -1,0 +1,22 @@
+.hamburger-btn {
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  margin: 2rem;
+  cursor: pointer;
+  background-color: unset;
+  border: unset;
+  z-index: 10;
+  position: sticky;
+  top: 2rem;
+  left: 0;
+}
+
+.hamburger-btn > div {
+  background-color: black;
+  width: 2rem;
+  height: 0.25rem;
+}

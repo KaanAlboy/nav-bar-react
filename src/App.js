@@ -1,24 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { Fragment, useEffect, useState } from "react";
+import Menu from "./components/UI/Menu";
+import HamburgerButton from "./components/UI/HamburgerButton";
 
 function App() {
+  const [menuIsVisible, setMenuIsVisible] = useState(false);
+  const [hamburgerBtnIsVisible, setHamburgerBtnIsVisible] = useState(true);
+
+  useEffect(() => {
+    let timer;
+    if (!menuIsVisible) {
+      timer = setTimeout(() => {
+        setHamburgerBtnIsVisible(true);
+      }, 200);
+    }
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [menuIsVisible]);
+
+  const hamburgerBtnClickHandler = () => {
+    setMenuIsVisible(true);
+    setHamburgerBtnIsVisible(false);
+  };
+  const menuCloseBtnClickHandler = () => {
+    setMenuIsVisible(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      {hamburgerBtnIsVisible && (
+        <HamburgerButton onHamburgerBtnClick={hamburgerBtnClickHandler} />
+      )}
+      <Menu
+        isVisible={menuIsVisible}
+        onCloseBtnClick={menuCloseBtnClickHandler}
+      />
+      <div style={{ height: "200vh" }}></div>
+    </Fragment>
   );
 }
 

@@ -1,6 +1,6 @@
 import { Fragment, useState } from "react";
 import Menu from "./components/UI/Menu";
-import HamburgerButton from "./components/UI/HamburgerButton";
+import NavBar from "./components/UI/NavBar";
 
 function App() {
   const [menuIsVisible, setMenuIsVisible] = useState(false);
@@ -14,7 +14,7 @@ function App() {
 
   return (
     <Fragment>
-      <HamburgerButton onHamburgerBtnClick={hamburgerBtnClickHandler} />
+      <NavBar onHamburgerBtnClick={hamburgerBtnClickHandler} />
       <Menu
         isVisible={menuIsVisible}
         onCloseBtnClick={menuCloseBtnClickHandler}

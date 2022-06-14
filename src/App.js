@@ -1,27 +1,12 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
 import Menu from "./components/UI/Menu";
 import HamburgerButton from "./components/UI/HamburgerButton";
 
 function App() {
   const [menuIsVisible, setMenuIsVisible] = useState(false);
-  const [hamburgerBtnIsVisible, setHamburgerBtnIsVisible] = useState(true);
-
-  useEffect(() => {
-    let timer;
-    if (!menuIsVisible) {
-      timer = setTimeout(() => {
-        setHamburgerBtnIsVisible(true);
-      }, 200);
-    }
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [menuIsVisible]);
 
   const hamburgerBtnClickHandler = () => {
     setMenuIsVisible(true);
-    setHamburgerBtnIsVisible(false);
   };
   const menuCloseBtnClickHandler = () => {
     setMenuIsVisible(false);
@@ -29,13 +14,19 @@ function App() {
 
   return (
     <Fragment>
-      {hamburgerBtnIsVisible && (
-        <HamburgerButton onHamburgerBtnClick={hamburgerBtnClickHandler} />
-      )}
+      <HamburgerButton onHamburgerBtnClick={hamburgerBtnClickHandler} />
       <Menu
         isVisible={menuIsVisible}
         onCloseBtnClick={menuCloseBtnClickHandler}
       />
+      <div
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(3,0,51,1) 0%, rgba(108,9,121,1) 35%, rgba(255,109,0,1) 94%)",
+          height: "90vh",
+          width: "100vw",
+        }}
+      ></div>
       <div style={{ height: "200vh" }}></div>
     </Fragment>
   );

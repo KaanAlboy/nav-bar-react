@@ -1,14 +1,16 @@
 .menu {
   height: 100vh;
   max-width: 300px;
-  width: 50%;
+  width: 50vw;
   transform: translateX(-110%);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
   z-index: 9;
   transition: transform 0.3s ease-in-out;
   border-radius: 0.7rem;
   box-shadow: 6px 1px 14px 1px rgb(0 0 0 / 25%);
+  background-color: whitesmoke;
 }
 
 .menu-open {
@@ -55,7 +57,7 @@ li:hover {
 
 @media (max-width: 600px) {
   .menu {
-    width: 90%;
+    width: 90vw;
     max-width: unset;
   }
 }

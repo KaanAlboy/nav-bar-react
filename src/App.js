@@ -8,6 +8,7 @@ function App() {
   const hamburgerBtnClickHandler = () => {
     setMenuIsVisible(true);
   };
+  
   const menuCloseBtnClickHandler = () => {
     setMenuIsVisible(false);
   };
